@@ -32,7 +32,7 @@ val isTwoPair = cards.groupBy { it.weight }.map { it.value }.filter { it.size ==
 val isPair = cards.groupBy { it.weight }.map { it.value }.any { it.size == 2 }
 ```
 
-## Rules Engine 
+## Rules 
 
 It is now simple to implement `Comparable<PokerHand>` against another hand, in a top-down approach, for example a straight flush beats four of a kind, which beats a full house, and so forth. 
 
