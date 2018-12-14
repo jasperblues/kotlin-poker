@@ -110,25 +110,25 @@ class PokerHandTests {
         assertFalse(PokerHand.fromString("2S 2D 2C 5C 6C").isPair)
     }
 
-@Test
-fun compareTo() {
-    test(LOSS,  "2H 3H 4H 5H 6H", "KS AS TS QS JS", "The highest straight flush wins")
-    test(WIN,   "2H 3H 4H 5H 6H", "AS AD AC AH JD", "A straight flush wins over 4 of a kind")
-    test(WIN,   "AS AH 2H AD AC", "JS JD JC JH 3D", "The highest 4 of a kind wins")
-    test(LOSS,  "2S AH 2H AS AC", "JS JD JC JH AD", "4 Of a kind wins over a full house")
-    test(WIN,   "2S AH 2H AS AC", "2H 3H 5H 6H 7H", "A full house wins over a flush")
-    test(WIN,   "AS 3S 4S 8S 2S", "2H 3H 5H 6H 7H", "The highest flush wins")
-    test(WIN,   "2H 3H 5H 6H 7H", "2S 3H 4H 5S 6C", "A flush wins over a straight")
-    test(TIE,   "2S 3H 4H 5S 6C", "3D 4C 5H 6H 2S", "Equal straight is tie")
-    test(WIN,   "2S 3H 4H 5S 6C", "AH AC 5H 6H AS", "A straight wins over three of a kind")
-    test(LOSS,  "2S 2H 4H 5S 4C", "AH AC 5H 6H AS", "3 Of a kind wins over a two pair")
-    test(WIN,   "2S 2H 4H 5S 4C", "AH AC 5H 6H 7S", "A 2 pair wins over a pair")
-    test(LOSS,  "6S AD 7H 4S AS", "AH AC 5H 6H 7S", "The highest pair wins")
-    test(LOSS,  "2S AH 4H 5S KC", "AH AC 5H 6H 7S", "A pair wins over a shit hand")
-    test(LOSS,  "8C 4S KH JS 4D", "KC 4H KS 2H 8D", "Both sides with pairs, the high card side wins")
-    test(WIN,   "KD 6S 9D TH AD", "JH 8S TH AH QH", "A shit hands beats another shit hand, by high card")
-    test(TIE,   "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C", "Equal shit cards tie")
-}
+    @Test
+    fun compareTo() {
+        test(LOSS, "2H 3H 4H 5H 6H", "KS AS TS QS JS", "The highest straight flush wins")
+        test(WIN, "2H 3H 4H 5H 6H", "AS AD AC AH JD", "A straight flush wins over 4 of a kind")
+        test(WIN, "AS AH 2H AD AC", "JS JD JC JH 3D", "The highest 4 of a kind wins")
+        test(LOSS, "2S AH 2H AS AC", "JS JD JC JH AD", "4 Of a kind wins over a full house")
+        test(WIN, "2S AH 2H AS AC", "2H 3H 5H 6H 7H", "A full house wins over a flush")
+        test(WIN, "AS 3S 4S 8S 2S", "2H 3H 5H 6H 7H", "The highest flush wins")
+        test(WIN, "2H 3H 5H 6H 7H", "2S 3H 4H 5S 6C", "A flush wins over a straight")
+        test(TIE, "2S 3H 4H 5S 6C", "3D 4C 5H 6H 2S", "Equal straight is tie")
+        test(WIN, "2S 3H 4H 5S 6C", "AH AC 5H 6H AS", "A straight wins over three of a kind")
+        test(LOSS, "2S 2H 4H 5S 4C", "AH AC 5H 6H AS", "3 Of a kind wins over a two pair")
+        test(WIN, "2S 2H 4H 5S 4C", "AH AC 5H 6H 7S", "A 2 pair wins over a pair")
+        test(LOSS, "6S AD 7H 4S AS", "AH AC 5H 6H 7S", "The highest pair wins")
+        test(LOSS, "2S AH 4H 5S KC", "AH AC 5H 6H 7S", "A pair wins over a shit hand")
+        test(LOSS, "8C 4S KH JS 4D", "KC 4H KS 2H 8D", "Both sides with pairs, the high card side wins")
+        test(WIN, "KD 6S 9D TH AD", "JH 8S TH AH QH", "A shit hands beats another shit hand, by high card")
+        test(TIE, "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C", "Equal shit cards tie")
+    }
 
     private fun test(expected: Int, playerHand: String, opponentHand: String, description: String) {
         assertEquals("$description:", expected, PokerHand.fromString(playerHand)
