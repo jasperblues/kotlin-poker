@@ -77,7 +77,7 @@ fun compareTo() {
     test(LOSS,  "6S AD 7H 4S AS", "AH AC 5H 6H 7S", "The highest pair wins")
     test(LOSS,  "2S AH 4H 5S KC", "AH AC 5H 6H 7S", "A pair wins over a dud hand")
     test(LOSS,  "8C 4S KH JS 4D", "KC 4H KS 2H 8D", "Both sides with pairs, the high card side wins")
-    test(WIN,   "KD 6S 9D TH AD", "JH 8S TH AH QH", "A dud hands beats another dud hand, by high card")
-    test(TIE,   "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C", "Equal dud cards tie")
+    test(WIN,   "KD 6S 9D TH AD", "JH 8S TH AH QH", "A shit hands beats another shit hand, by high card")
+    test(TIE,   "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C", "Equal shit cards tie")
 }
 ```
